@@ -13,12 +13,19 @@ const GET_BOOK_BY_ID = gql`
 function OneBook(){
     const [bookSearched, setBookSearched] = useState(1);
     console.log(bookSearched);
+    const [
+        fetchBook,
+        { data: bookSearchedData, error: bookError, loading },
+      ] = useLazyQuery(GET_BOOK_BY_ID);
+      if(loading){
+        return <h1>Loading</h1>
+      }
     return (
         <>
         <input type="number" value={bookSearched} onChange={(e) => {
             setBookSearched(e.target.value);
         }} />
-        <p>Not implemented yet(onebook)</p>
+        <p>Book title:</p>
         </>
     );
 };
