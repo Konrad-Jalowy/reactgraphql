@@ -7,9 +7,11 @@ function App() {
     uri: "http://localhost:4000/graphql",
   });
   return (
+    <ApolloProvider client={client}>
     <div className="App">
       <p>Hello world</p>
     </div>
+    </ApolloProvider>
   );
 }
 
