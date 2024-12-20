@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useLazyQuery, gql } from "@apollo/client";
 function OneBook(){
-    const [movieSearched, setMovieSearched] = useState(1);
-    console.log(movieSearched);
+    const [bookSearched, setBookSearched] = useState(1);
+    console.log(bookSearched);
     return (
         <>
-        <input type="number" value={movieSearched} onChange={(e) => {
-            setMovieSearched(e.target.value);
+        <input type="number" value={bookSearched} onChange={(e) => {
+            setBookSearched(e.target.value);
         }} />
         <p>Not implemented yet(onebook)</p>
         </>
