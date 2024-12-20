@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLazyQuery, gql } from "@apollo/client";
 const GET_BOOK_BY_ID = gql`
   query Book($id: ID!) {
@@ -15,17 +15,26 @@ function OneBook(){
     console.log(bookSearched);
     const [
         fetchBook,
-        { data: bookSearchedData, error: bookError, loading },
+        { data, error, loading },
       ] = useLazyQuery(GET_BOOK_BY_ID);
+      useEffect(() => {
+        fetchBook({variables: {id: `${bookSearched}`}});
+        console.log(data)
+      }, [bookSearched, fetchBook]);
       if(loading){
         return <h1>Loading</h1>
       }
+      if(error){
+        return <h1>Error</h1>
+      }
+     
+      
     return (
         <>
         <input type="number" value={bookSearched} onChange={(e) => {
             setBookSearched(e.target.value);
         }} />
-        <p>Book title:</p>
+        <p>Book title: {data && data.book && data.book.title}</p>
         </>
     );
 };
