@@ -15,7 +15,16 @@ function AllBooks(){
   }
     return (
         <>
-        <p>Not implemented yet(allbooks rfc)</p>
+        <ul>
+        {data &&
+        data.books.map((book) => {
+          return (
+            <li key={book.id}>
+             <em>{book.title}</em> by <strong>{book.author}</strong>
+            </li>
+          );
+        })}
+        </ul>
         </>
     );
 };
