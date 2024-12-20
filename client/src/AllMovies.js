@@ -1,3 +1,5 @@
+import { useQuery, gql} from "@apollo/client";
+
 function AllMovies(){
     return (
         <>
