@@ -9,6 +9,10 @@ const QUERY_ALL_BOOKS = gql`
   }
 `;
 function AllBooks(){
+  const { data, loading, refetch } = useQuery(QUERY_ALL_BOOKS);
+  if (loading) {
+    return <h1> DATA IS LOADING...</h1>;
+  }
     return (
         <>
         <p>Not implemented yet(allbooks rfc)</p>
