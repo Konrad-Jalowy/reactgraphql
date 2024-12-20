@@ -26,6 +26,15 @@ function OneBook(){
       if(error){
         return <h1>Error</h1>
       }
+      if(data?.book === null){
+        return (<>
+        <input type="number" value={bookSearched} onChange={(e) => {
+            setBookSearched(e.target.value);
+        }} />
+        <h1>Such book doesnt exist</h1>
+        </>
+        );
+      }
      
       
     return (
