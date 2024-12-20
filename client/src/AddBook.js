@@ -19,6 +19,7 @@ function AddBook(){
             setAuthor(event.target.value);
           }}
          />
+         <button>Add</button>
         <p>Add book not implemented yet!</p>
         </>
     );
