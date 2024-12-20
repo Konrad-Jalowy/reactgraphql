@@ -25,6 +25,7 @@ function AllBooks(){
           );
         })}
         </ul>
+        <button onClick={() => refetch()}>Refetch</button>
         </>
     );
 };
