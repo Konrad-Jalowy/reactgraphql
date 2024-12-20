@@ -1,4 +1,4 @@
-const Books = require("../data/books");
+const Books = require("./books");
 
 const resolvers = {
     Query: {
