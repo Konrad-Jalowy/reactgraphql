@@ -13,6 +13,9 @@ const resolvers = {
         addNewBook: (_, args) => {
             return Books.addNewBook(args.title, args.author);
           },
+        addNewBookIpt: (_, args) => {
+            return Books.addNewBookInput(args.input);
+        }
     }
   };
 

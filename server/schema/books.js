@@ -38,12 +38,12 @@ exports.addNewBook = function(title, author) {
     return _newBook;
   }
 
-exports.addNewBookInput = function({title, author}){
+exports.addNewBookInput = function(input){
     let _newId = getNextId();
     const _newBook = {
       id: `${_newId}`,
-      title,
-      author
+      title: input.title,
+      author: input.author
     };
   
     books.push(_newBook);
