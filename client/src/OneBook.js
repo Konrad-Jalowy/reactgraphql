@@ -19,7 +19,6 @@ function OneBook(){
       ] = useLazyQuery(GET_BOOK_BY_ID);
       useEffect(() => {
         fetchBook({variables: {id: `${bookSearched}`}});
-        console.log(data)
       }, [bookSearched, fetchBook]);
       if(loading){
         return <h1>Loading</h1>
@@ -35,6 +34,7 @@ function OneBook(){
             setBookSearched(e.target.value);
         }} />
         <p>Book title: {data && data.book && data.book.title}</p>
+        <p>Book author: {data && data.book && data.book.author}</p>
         </>
     );
 };
