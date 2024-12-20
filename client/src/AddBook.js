@@ -1,5 +1,13 @@
 import { useState } from "react";
 import {gql, useMutation} from "@apollo/client"
+
+const CREATE_BOOK_MUTATION = gql`
+  mutation AddNewBookIpt($input: createBookInput!) {
+    AddNewBookIpt(input: $input) {
+      id
+    }
+  }
+`;
 function AddBook(){
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
