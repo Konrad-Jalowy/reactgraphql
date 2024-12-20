@@ -2,8 +2,8 @@ import { useState } from "react";
 import {gql, useMutation} from "@apollo/client"
 
 const CREATE_BOOK_MUTATION = gql`
-  mutation AddNewBookIpt($input: createBookInput!) {
-    AddNewBookIpt(input: $input) {
+  mutation CreateBook($input: createBookInput!) {
+    addNewBookIpt(input: $input) {
       id
     }
   }
@@ -11,6 +11,7 @@ const CREATE_BOOK_MUTATION = gql`
 function AddBook(){
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
+    const [createBook] = useMutation(CREATE_BOOK_MUTATION);
     return (
         <>
         <input 
@@ -27,7 +28,14 @@ function AddBook(){
             setAuthor(event.target.value);
           }}
          />
-         <button>Add</button>
+         <button  onClick={() => {
+            console.log(title, author)
+            createBook({
+              variables: {
+                input: { title: title, author: author},
+              },
+            });
+        }}>Add</button>
         <p>Add book not implemented yet!</p>
         </>
     );
